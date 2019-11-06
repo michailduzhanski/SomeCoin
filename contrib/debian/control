@@ -1,0 +1,22 @@
+Source: arnak
+Section: utils
+Priority: optional
+Maintainer: Electric Coin Company <team@electriccoin.co>
+Homepage: https://z.cash
+Build-Depends: autoconf, automake, bsdmainutils, build-essential,
+ git, g++-multilib, libc6-dev, libtool,
+ m4, ncurses-dev, pkg-config, python,
+ unzip, wget, zlib1g-dev
+Vcs-Git: https://github.com/michailduzhanski/arnak.git
+Vcs-Browser: https://github.com/michailduzhanski/arnak
+
+Package: arnak
+Architecture: amd64
+Depends: ${shlibs:Depends}
+Description: Arnak libraries and tools
+ Based on Bitcoin's code, it intends to offer a far higher standard
+ of privacy and anonymity through a sophisticiated zero-knowledge
+ proving scheme which preserves confidentiality of transaction metadata.
+ Think of it as HTTPS for money.
+ This package provides the daemon, arnakd, and the CLI tool,
+ arnak-cli, to interact with the daemon.

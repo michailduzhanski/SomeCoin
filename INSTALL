@@ -1,0 +1,5 @@
+Building Arnak
+
+See the Arnak documentation wiki (https://arnak.readthedocs.io/en/latest/rtd_pages/user_guide.html) for instructions on building arnakd,
+the intended-for-services, no-graphical-interface, reference
+implementation of Arnak.
