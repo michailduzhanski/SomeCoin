@@ -18,7 +18,7 @@ Possible options:
 
 ```
 -h, --help       show this help message and exit
-  --nocleanup      Leave zcashds and test.* datadir on exit or error
+  --nocleanup      Leave arnakds and test.* datadir on exit or error
   --noshutdown     Don't stop bitcoinds after the test execution
   --srcdir=SRCDIR  Source directory containing arnakd/arnak-cli (default:
                    ../../src)

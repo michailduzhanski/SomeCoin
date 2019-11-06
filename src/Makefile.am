@@ -423,16 +423,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-zcashd_SOURCES = bitcoind.cpp
-zcashd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-zcashd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-zcashd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+arnakd_SOURCES = bitcoind.cpp
+arnakd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+arnakd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+arnakd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-zcashd_SOURCES += bitcoind-res.rc
+arnakd_SOURCES += bitcoind-res.rc
 endif
 
-zcashd_LDADD = \
+arnakd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_WALLET) \
   $(LIBBITCOIN_COMMON) \
@@ -446,7 +446,7 @@ zcashd_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-zcashd_LDADD += \
+arnakd_LDADD += \
   $(BOOST_LIBS) \
   $(BDB_LIBS) \
   $(SSL_LIBS) \
