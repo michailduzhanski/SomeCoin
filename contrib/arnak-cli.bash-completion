@@ -27,7 +27,7 @@ _arnak_accounts() {
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "$accounts" -- "$cur" ) )
 }
 
-_zcash_cli() {
+_arnak_cli() {
     local cur prev words=() cword
     local arnak_cli
 
@@ -150,7 +150,7 @@ _zcash_cli() {
             ;;
     esac
 } &&
-complete -F _zcash_cli arnak-cli
+complete -F _arnak_cli arnak-cli
 
 # Local variables:
 # mode: shell-script
