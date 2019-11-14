@@ -131,23 +131,22 @@ public:
         pchMessageStart[3] = 0x64;
         vAlertPubKey = ParseHex("04dca46fa5ca4600ab464f748967f34ee5134f477169d9818467f7abd79cb824ad3d51672c366864ae397b2d01819715c21ad2313cc095928658b5bf5ea1c545eb");
         nDefaultPort = 15203;
-        nPruneAfterHeight = 100000;
+        nPruneAfterHeight = 100000;        
 
-        genesis = CreateGenesisBlock(
-            1573165083,
-            uint256S("0000000000000000000000000000000000000000000000000000000000001892"),
-            ParseHex("005e6d2fb0a8a133e7833044e5156c35b950f9e89b3e1fcc1c3bd342c5f36db4aa4367f2d2c39759fd070bab8a8c41635b33a4873445cbd97adb16195ec6ab125a8b00ce08addf31ba3690cf3909173b9fbc97ce020e17bc9a16d986ee84c1133ddf880cb192ba2a4d27a30dd539dbffef3df506e1d1f90366ca9257ee1503ab45ab1765b76733ce203dfc4869fc1c7d0b0eb215b7acb1753af741f1e8c1caa1618328bacfaf9ebf0888dfb9c9de51c9b02ef28a8fe86bf28751b642bf3754758238ecf4e5fab774aac33acb0d93fe5850a51b4c34e3298a2d848ae8e2cf5b3e1e624c6133b31f1d66e67173eb224b609c2431e344d2c93070eba57b19058cfced089fa7c1bb53ba53ddcbaaf1c95c6c21302eafcf21af8785be85d5db00d50abe1f37b1a46726eef4049a97d9d19d412428cbfa9ea9997f99ab212df27270ccdcd60f5317d4d18ee1ee929e851b03b30246e79414e5afa74694821277678e64e4c30ebcc21460730a1f934e21b9f0f6f162dfc731d76332465109d2cf990790a97c993b31f6e51c8924f707c8b7170c2b47947fcacf9fb1b086750dc164727f3f5cae0c0cf1b5773f491f2775ead2bda867e4cf5d9d1b86323b4e5d2ff85bdb2b28f7c47c6acffb41aaca10ee07272abac9a5aa0d137d36b2af9dfa5529f3c2b310283a7697cf075b94cbfbf59a2404eccc86d44bbced420466d8ec5aa103753d3ce14e71a1bd522f115c0b4c1da45c6fc6d3b2eb31a6d5b0ccb960c391a5be48f00dffc57d98ef0b43d5d80665cdcff5ea430392bc0e54f5b6ff4a715d63a94e49175c7326f2a8ea3debf20afe45f215ab3297b016510638f0f368ac9947098026218655215cd52d0265a8e27fe014e2a70ada2ea50ef627e083ca08b2ae1e719e1e21c1f10cdf0a456722d6da917a2047cd60bab49237412a6ebdb877e55b0128357361c2eaf7a78617b74cf84bb6409873b09c070a64e8d368b8357ef9b699c1df3ebb4cd51f198f1bc96e0c9ba34e0d9acfa33076eeed13e96a7f58b4229f9ae87c6980996b3e0394d06ab649350cd8a6b11502b134aa89171eb6477533c72a862dd32b8fbd9f1e97ab840169eee75b70941058a806b5c454964e4318a8a1726c5f838169dd73e84c26622e76eeda53a142f0e5b5d1979276dfc50a2be4dc3b1efa5f3af3d30853a95b3c309caba142532a796faee2f6de59a07c70e8277596e3e31d65d6ead5b2fc7ae7689fffb35d2f5bd4149dd4486b8c10d5210b3d142dfbf673a0483ab9c9dd63cfba749daac78626601ffefd7e5fa17e18a2cf51cbf9ac8bcfe542b4ca73bd2efdeebf981e6b6bbbe651a21d29f36e68ebba4f90bba029fd60ff21750cd7726fd78f9df275787cdd3389a0d370ed5429e7a45376f63c31fe66d52b2549bc460d5193260e0d7ce4e7a0446543c55fa4df9431371a887819e0fd417aec59e6d270217fd7f73404cf45cfa51edd36431adf6b0702d20c799b0074f8bee2382babbdde25972e3214a3b2577dddd6eb835bf86414d1bea05b59fa10517890870c4107e140b2c5b92d2781bfabfb8264150746337b52e5affe5303aa4f70f48d35a90e2a991f2dfe519c244ae592a704813cfcfbf2bcecdd90004186fbdf4a5c5d9d0368763cc441744b27b65bfd480fcd49a50c94d8c8bf53d315bf5d80dd571e11b4d21676925ae017f070f57c218d657faa39b6fe5b5803669426cab01ab6dd1fecdafe0ef6eb4f439bffc6276c1e367e2dad9e7b723ed94163d7791e76e73f48fd10e6a1568b2304b377f0b5109a5886ea73f47f0d6e1cdf422fd26d07299a07daa80c760e52fb9978d53b111a1cf567186b7384fc21d9cd6c7642677a98596d1a449bf10cd20527286903fac1eeaa6d029b4ac660"),
-            0x1f07ffff, 4, 3200000000);
+        vFixedSeeds.clear();genesis = CreateGenesisBlock(
+            1573320600,
+            uint256S("0x0000000000000000000000000000000000000000000000000000000000000364"),
+            ParseHex("0065f767a58b8ce5475662c9f8e438a6b2871909031b6e66b2b9bcbaadf918622b02c58c84f88f0cbe720af5653e765e9ac599a3257bd2b4d8bab4801824612a9c5e68ec0ba7d2683073a502eba6262f8ed8650f088f65ac19d53$
+            0x1f07ffff, 4, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-		printf("block.nTime = %u \n", genesis.nTime);
-		printf("block.nNonce = %s \n", genesis.nNonce.ToString().c_str());
-		printf("block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-		printf("block.merkle = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-        assert(consensus.hashGenesisBlock == uint256S("0x00036cbcbde45e45939af8dd8749ccd9c61c751bc898dcada157495d847e13c5"));
-        assert(genesis.hashMerkleRoot == uint256S("0xc13830f6ce14712d54ffcaa05f1bfb2a82db57c63135c2948805306b5de06001"));
-
-        vFixedSeeds.clear();
+                printf("block.nTime = %u \n", genesis.nTime);
+                printf("block.nNonce = %s \n", genesis.nNonce.ToString().c_str());
+                printf("block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+                printf("block.merkle = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        assert(consensus.hashGenesisBlock == uint256S("0x0000bbe7305332fcdd04b1ad4df19d9800ceae21488a3958e0f39886e782a2ce"));
+        assert(genesis.hashMerkleRoot == uint256S("0xe61b7d3ec8da5e04425f30cfd83e2524ad0b11d1d62bb9f0776b8372af4cc876"));
         vSeeds.clear();
+		
         // vSeeds.push_back(CDNSSeedData("z.cash", "dnsseed.z.cash")); // Arnak
         // vSeeds.push_back(CDNSSeedData("str4d.xyz", "dnsseed.str4d.xyz")); // @str4d
 
