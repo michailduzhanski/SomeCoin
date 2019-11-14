@@ -1828,42 +1828,19 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
     CAmount nSubsidy = 32 * COIN;
 
-    // Mining slow start
-    // The subsidy is ramped up linearly, skipping the middle payout of
-    // MAX_SUBSIDY/2 to keep the monetary curve consistent with no slow start.
-    if (nHeight < consensusParams.nSubsidySlowStartInterval / 2) {
-        nSubsidy /= consensusParams.nSubsidySlowStartInterval;
-        nSubsidy *= nHeight;
-        return nSubsidy;
-    } else if (nHeight < consensusParams.nSubsidySlowStartInterval) {
-        nSubsidy /= consensusParams.nSubsidySlowStartInterval;
-        nSubsidy *= (nHeight+1);
-        return nSubsidy;
-    }
+    if ( nHeight == 1 ) nSubsidy = (200000000 * COIN);
+    else if ( nHeight <= 1000000 ) nSubsidy = (32 * COIN);
+    else if ( nHeight <= 2000000 ) nSubsidy = (16 * COIN);
+    else if ( nHeight <= 3000000 ) nSubsidy = (8 * COIN);
+    else if ( nHeight <= 4000000 ) nSubsidy = (4 * COIN);
+    else if ( nHeight <= 5000000 ) nSubsidy = (2 * COIN);
+    else if ( nHeight <= 6000000 ) nSubsidy = (1 * COIN);
+    else if ( nHeight <= 7000000 ) nSubsidy = (0.5 * COIN);
+    else if ( nHeight <= 8000000 ) nSubsidy = (0.25 * COIN);
+    else if ( nHeight <= 9000000 ) nSubsidy = (0.125 * COIN);
+    else nSubsidy = (0.0625 * COIN);
 
-    assert(nHeight > consensusParams.SubsidySlowStartShift());
-
-    int halvings = consensusParams.Halving(nHeight);
-
-    // Force block reward to zero when right shift is undefined.
-    if (halvings >= 64)
-        return 0;
-	
-	if (nHeight == 1)
-		return 200000000 * COIN;
-
-    // zip208
-    // BlockSubsidy(height) :=
-    // SlowStartRate · height, if height < SlowStartInterval / 2
-    // SlowStartRate · (height + 1), if SlowStartInterval / 2 ≤ height and height < SlowStartInterval
-    // floor(MaxBlockSubsidy / 2^Halving(height)), if SlowStartInterval ≤ height and not IsBlossomActivated(height)
-    // floor(MaxBlockSubsidy / (BlossomPoWTargetSpacingRatio · 2^Halving(height))), otherwise
-    if (consensusParams.NetworkUpgradeActive(nHeight, Consensus::UPGRADE_BLOSSOM)) {
-        return (nSubsidy / Consensus::BLOSSOM_POW_TARGET_SPACING_RATIO) >> halvings;
-    } else {
-        // Subsidy is cut in half every 840,000 blocks which will occur approximately every 4 years.
-        return nSubsidy >> halvings;
-    }
+    return nSubsidy;
 }
 
 bool IsInitialBlockDownload(const CChainParams& chainParams)
