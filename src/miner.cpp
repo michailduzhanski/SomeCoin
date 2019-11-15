@@ -555,7 +555,8 @@ void static BitcoinMiner(const CChainParams& chainparams)
             throw std::runtime_error("No coinbase script available (mining requires a wallet or -mineraddress)");
 
         while (true) {
-            if (chainparams.MiningRequiresPeers()) {
+//            if (chainparams.MiningRequiresPeers()) {
+if(false){
                 // Busy-wait for the network to come online so we don't waste time mining
                 // on an obsolete chain. In regtest mode we expect to fly solo.
                 miningTimer.stop();
@@ -571,7 +572,7 @@ void static BitcoinMiner(const CChainParams& chainparams)
                 } while (true);
                 miningTimer.start();
             }
-
+LogPrintf("BitcoinMiner: test 0\n");
             //
             // Create new block
             //
@@ -579,6 +580,7 @@ void static BitcoinMiner(const CChainParams& chainparams)
             CBlockIndex* pindexPrev = chainActive.Tip();
 
             unique_ptr<CBlockTemplate> pblocktemplate(CreateNewBlock(chainparams, coinbaseScript->reserveScript));
+LogPrintf("BitcoinMiner: test 1\n");
             if (!pblocktemplate.get())
             {
                 if (GetArg("-mineraddress", "").empty()) {
@@ -665,6 +667,7 @@ void static BitcoinMiner(const CChainParams& chainparams)
 
                 // TODO: factor this out into a function with the same API for each solver.
                 if (solver == "tromp") {
+LogPrintf("BitcoinMiner: tromp test 1\n");
                     // Create solver and initialize it.
                     equi eq(1);
                     eq.setstate(&curr_state);
@@ -748,6 +751,7 @@ void static BitcoinMiner(const CChainParams& chainparams)
         LogPrintf("ArnakMiner runtime error: %s\n", e.what());
         return;
     }
+LogPrintf("BitcoinMiner: end 0\n");
     miningTimer.stop();
     c.disconnect();
 }

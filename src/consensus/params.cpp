@@ -47,15 +47,16 @@ namespace Consensus {
         // height = H + postInterval - (H - SS) * (postInterval / preInterval)
         // height = H + postInterval - (H - SS) * R
         // Note: This depends on R being an integer
-        bool blossomActive = NetworkUpgradeActive(nHeight, Consensus::UPGRADE_BLOSSOM);
-        if (blossomActive) {
-            int blossomActivationHeight = vUpgrades[Consensus::UPGRADE_BLOSSOM].nActivationHeight;
-            // The following calculation depends on BLOSSOM_POW_TARGET_SPACING_RATIO being an integer. 
-            return blossomActivationHeight + nPostBlossomSubsidyHalvingInterval
-                - (blossomActivationHeight - SubsidySlowStartShift()) * BLOSSOM_POW_TARGET_SPACING_RATIO - 1;
-        } else {
-            return nPreBlossomSubsidyHalvingInterval + SubsidySlowStartShift() - 1;
-        }
+//        bool blossomActive = NetworkUpgradeActive(nHeight, Consensus::UPGRADE_BLOSSOM);
+//        if (blossomActive) {
+//            int blossomActivationHeight = vUpgrades[Consensus::UPGRADE_BLOSSOM].nActivationHeight;
+//            // The following calculation depends on BLOSSOM_POW_TARGET_SPACING_RATIO being an integer. 
+//            return blossomActivationHeight + nPostBlossomSubsidyHalvingInterval
+//                - (blossomActivationHeight - SubsidySlowStartShift()) * BLOSSOM_POW_TARGET_SPACING_RATIO - 1;
+//        } else {
+//            return nPreBlossomSubsidyHalvingInterval + SubsidySlowStartShift() - 1;
+//        }
+return 0;
     }
 
     int64_t Params::PoWTargetSpacing(int nHeight) const {
