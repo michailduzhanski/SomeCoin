@@ -1596,8 +1596,10 @@ bool CWallet::AddToWallet(const CWalletTx& wtxIn, bool fFromLoadWallet, CWalletD
 
         // Write to disk
         if (fInsertedNew || fUpdated)
-            if (!wtx.WriteToDisk(pwalletdb))
+            if (!wtx.WriteToDisk(pwalletdb)){
+LogPrintf("AddToWallet test wrong block:%s\n", wtxIn.GetHash().ToString());
                 return false;
+}
 
         // Break debit/credit balance caches:
         wtx.MarkDirty();
@@ -1615,6 +1617,7 @@ bool CWallet::AddToWallet(const CWalletTx& wtxIn, bool fFromLoadWallet, CWalletD
         }
 
     }
+LogPrintf("AddToWallet test add to wallet block:%s\n", wtxIn.GetHash().ToString());
     return true;
 }
 
