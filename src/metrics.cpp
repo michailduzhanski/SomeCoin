@@ -207,7 +207,7 @@ int printStats(bool mining)
 {
     // Number of lines that are always displayed
     int lines = 4;
-
+    try{
     int height;
     int64_t currentHeadersHeight;
     int64_t currentHeadersTime;
@@ -238,7 +238,13 @@ int printStats(bool mining)
         lines++;
     }
     std::cout << std::endl;
-
+    }
+    catch (const std::exception &e) {
+        LogPrintf("metrics: exception: %s\n", e.what());
+    }
+    catch (...) {
+        LogPrintf("metrics: unknown error\n");
+    }
     return lines;
 }
 
@@ -247,7 +253,7 @@ int printMiningStatus(bool mining)
 #ifdef ENABLE_MINING
     // Number of lines that are always displayed
     int lines = 1;
-
+    try{
     if (mining) {
         auto nThreads = miningTimer.threadCount();
         if (nThreads > 0) {
@@ -274,7 +280,13 @@ int printMiningStatus(bool mining)
         lines += 2;
     }
     std::cout << std::endl;
-
+    }
+    catch (const std::exception &e) {
+        LogPrintf("metrics: mining exception: %s\n", e.what());
+    }
+    catch (...) {
+        LogPrintf("metrics: mining unknown error\n");
+    }
     return lines;
 #else // ENABLE_MINING
     return 0;
@@ -285,7 +297,7 @@ int printMetrics(size_t cols, bool mining)
 {
     // Number of lines that are always displayed
     int lines = 3;
-
+    try{
     // Calculate uptime
     int64_t uptime = GetUptime();
     int days = uptime / (24 * 60 * 60);
@@ -370,12 +382,20 @@ int printMetrics(size_t cols, bool mining)
         }
     }
     std::cout << std::endl;
+    }
+    catch (const std::exception &e) {
+        LogPrintf("metrics: print exception: %s\n", e.what());
+    }
+    catch (...) {
+        LogPrintf("metrics: print unknown error\n");
+    }
 
     return lines;
 }
 
 int printMessageBox(size_t cols)
 {
+    try{
     boost::strict_lock_ptr<std::list<std::string>> u = messageBox.synchronize();
 
     if (u->size() == 0) {
@@ -403,6 +423,16 @@ int printMessageBox(size_t cols)
     }
     std::cout << std::endl;
     return lines;
+    }
+    catch (const std::exception &e) {
+        LogPrintf("metrics: messageBox exception: %s\n", e.what());
+        return 0;
+    }
+    catch (...) {
+        LogPrintf("metrics: messageBox unknown error\n");
+        return 0;
+    }
+
 }
 
 int printInitMessage()
