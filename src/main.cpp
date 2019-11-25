@@ -1155,9 +1155,9 @@ bool CheckTransactionWithoutProofVerification(const CTransaction& tx, CValidatio
 
     // Transactions containing empty `vin` must have either non-empty
     // `vJoinSplit` or non-empty `vShieldedSpend`.
-    if (tx.vin.empty() && tx.vJoinSplit.empty() && tx.vShieldedSpend.empty())
-        return state.DoS(10, error("CheckTransaction(): vin empty"),
-                         REJECT_INVALID, "bad-txns-vin-empty");
+//    if (tx.vin.empty() && tx.vJoinSplit.empty() && tx.vShieldedSpend.empty())
+//        return state.DoS(10, error("CheckTransaction(): vin empty"),
+//                         REJECT_INVALID, "bad-txns-vin-empty");
     // Transactions containing empty `vout` must have either non-empty
     // `vJoinSplit` or non-empty `vShieldedOutput`.
     if (tx.vout.empty() && tx.vJoinSplit.empty() && tx.vShieldedOutput.empty())
