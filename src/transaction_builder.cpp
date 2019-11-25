@@ -91,9 +91,9 @@ void TransactionBuilder::AddSaplingSpend(
     SaplingWitness witness)
 {
     // Sanity check: cannot add Sapling spend to pre-Sapling transaction
-    if (mtx.nVersion < SAPLING_TX_VERSION) {
-        throw std::runtime_error("TransactionBuilder cannot add Sapling spend to pre-Sapling transaction");
-    }
+//    if (mtx.nVersion < SAPLING_TX_VERSION) {
+//        throw std::runtime_error("TransactionBuilder cannot add Sapling spend to pre-Sapling transaction");
+//    }
 
     // Consistency check: all anchors must equal the first one
     if (spends.size() > 0 && spends[0].anchor != anchor) {
@@ -111,9 +111,9 @@ void TransactionBuilder::AddSaplingOutput(
     std::array<unsigned char, ZC_MEMO_SIZE> memo)
 {
     // Sanity check: cannot add Sapling output to pre-Sapling transaction
-    if (mtx.nVersion < SAPLING_TX_VERSION) {
-        throw std::runtime_error("TransactionBuilder cannot add Sapling output to pre-Sapling transaction");
-    }
+//    if (mtx.nVersion < SAPLING_TX_VERSION) {
+//        throw std::runtime_error("TransactionBuilder cannot add Sapling output to pre-Sapling transaction");
+//    }
 
     auto note = libzcash::SaplingNote(to, value);
     outputs.emplace_back(ovk, note, memo);

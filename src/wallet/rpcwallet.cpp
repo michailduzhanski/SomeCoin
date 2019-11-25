@@ -3727,6 +3727,7 @@ UniValue z_sendmany(const UniValue& params, bool fHelp)
                 isZaddr = true;
 
                 bool toSapling = boost::get<libzcash::SaplingPaymentAddress>(&res) != nullptr;
+LogPrintf("toSapling: %s\n", toSapling);
                 bool toSprout = !toSapling;
                 noSproutAddrs = noSproutAddrs && toSapling;
 
@@ -3789,7 +3790,8 @@ UniValue z_sendmany(const UniValue& params, bool fHelp)
     mtx.nVersionGroupId = SAPLING_VERSION_GROUP_ID;
     mtx.nVersion = SAPLING_TX_VERSION;
     unsigned int max_tx_size = MAX_TX_SIZE_AFTER_SAPLING;
-    if (!Params().GetConsensus().NetworkUpgradeActive(nextBlockHeight, Consensus::UPGRADE_SAPLING)) {
+//    if (!Params().GetConsensus().NetworkUpgradeActive(nextBlockHeight, Consensus::UPGRADE_SAPLING)) {
+if(false){
         if (Params().GetConsensus().NetworkUpgradeActive(nextBlockHeight, Consensus::UPGRADE_OVERWINTER)) {
             mtx.nVersionGroupId = OVERWINTER_VERSION_GROUP_ID;
             mtx.nVersion = OVERWINTER_TX_VERSION;
@@ -3806,7 +3808,8 @@ UniValue z_sendmany(const UniValue& params, bool fHelp)
         }
         // If Sapling is not active, do not allow sending from or sending to Sapling addresses.
         if (fromSapling || containsSaplingOutput) {
-            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, Sapling has not activated");
+       	    LogPrintf("Sapling error: %s, %s\n", fromSapling, containsSaplingOutput);
+            //throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, Sapling has not activated");
         }
     }
 
@@ -3884,10 +3887,10 @@ UniValue z_sendmany(const UniValue& params, bool fHelp)
     if (!fromTaddr || !zaddrRecipients.empty()) {
         // We have shielded inputs or outputs, and therefore cannot create
         // transactions before Sapling activates.
-        if (!Params().GetConsensus().NetworkUpgradeActive(nextBlockHeight, Consensus::UPGRADE_SAPLING)) {
-            throw JSONRPCError(
-                RPC_INVALID_PARAMETER, "Cannot create shielded transactions before Sapling has activated");
-        }
+//        if (!Params().GetConsensus().NetworkUpgradeActive(nextBlockHeight, Consensus::UPGRADE_SAPLING)) {
+//            throw JSONRPCError(
+//                RPC_INVALID_PARAMETER, "Cannot create shielded transactions before Sapling has activated");
+//        }
     }
 
     // Builder (used if Sapling addresses are involved)
