@@ -1160,9 +1160,9 @@ bool CheckTransactionWithoutProofVerification(const CTransaction& tx, CValidatio
 //                         REJECT_INVALID, "bad-txns-vin-empty");
     // Transactions containing empty `vout` must have either non-empty
     // `vJoinSplit` or non-empty `vShieldedOutput`.
-    if (tx.vout.empty() && tx.vJoinSplit.empty() && tx.vShieldedOutput.empty())
-        return state.DoS(10, error("CheckTransaction(): vout empty"),
-                         REJECT_INVALID, "bad-txns-vout-empty");
+//    if (tx.vout.empty() && tx.vJoinSplit.empty() && tx.vShieldedOutput.empty())
+//        return state.DoS(10, error("CheckTransaction(): vout empty"),
+//                         REJECT_INVALID, "bad-txns-vout-empty");
 
     // Size limits
     BOOST_STATIC_ASSERT(MAX_BLOCK_SIZE >= MAX_TX_SIZE_AFTER_SAPLING); // sanity
