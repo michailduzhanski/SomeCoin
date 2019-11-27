@@ -90,7 +90,7 @@ bool AsyncRPCOperation_saplingmigration::main_impl() {
     for (const SproutNoteEntry& sproutEntry : sproutEntries) {
         availableFunds += sproutEntry.note.value();
     }
-    // If the remaining amount to be migrated is less than 0.01 ZEC, end the migration.
+    // If the remaining amount to be migrated is less than 0.01 ARK, end the migration.
     if (availableFunds < CENT) {
         LogPrint("zrpcunsafe", "%s: Available Sprout balance (%s) less than required minimum (%s). Stopping.\n",
             getId(), FormatMoney(availableFunds), FormatMoney(CENT));
@@ -142,8 +142,8 @@ bool AsyncRPCOperation_saplingmigration::main_impl() {
             pwalletMain->GetSproutNoteWitnesses(vOutPoints, vInputWitnesses, inputAnchor);
             builder.AddSproutInput(sproutSk, sproutEntry.note, vInputWitnesses[0].get());
         }
-        // The amount chosen *includes* the 0.0001 ZEC fee for this transaction, i.e.
-        // the value of the Sapling output will be 0.0001 ZEC less.
+        // The amount chosen *includes* the 0.0001 ARK fee for this transaction, i.e.
+        // the value of the Sapling output will be 0.0001 ARK less.
         builder.SetFee(FEE);
         builder.AddSaplingOutput(ovkForShieldingFromTaddr(seed), migrationDestAddress, amountToSend - FEE);
         CTransaction tx = builder.Build().GetTxOrThrow();
@@ -182,7 +182,7 @@ CAmount AsyncRPCOperation_saplingmigration::chooseAmount(const CAmount& availabl
         int exponent = GetRand(3) + 6;
         // 2. Choose an integer mantissa uniformly in the range 1 to 99 inclusive.
         uint64_t mantissa = GetRand(99) + 1;
-        // 3. Calculate amount := (mantissa * 10^exponent) zatoshi.
+        // 3. Calculate amount := (mantissa * 10^exponent) μARK.
         int pow = std::pow(10, exponent);
         amount = mantissa * pow;
         // 4. If amount is greater than the amount remaining to send, repeat from step 1.

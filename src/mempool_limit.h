@@ -52,7 +52,7 @@ public:
 // which is an integer defined as:
 //   max(serialized transaction size in bytes, 4000)
 // Each transaction also has an *eviction weight*, which is *cost* + *fee_penalty*,
-// where *fee_penalty* is 16000 if the transaction pays a fee less than 10000 zatoshi,
+// where *fee_penalty* is 16000 if the transaction pays a fee less than 10000 μARK,
 // otherwise 0.
 struct TxWeight {
     int64_t cost;

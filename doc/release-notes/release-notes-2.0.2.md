@@ -66,7 +66,7 @@ Jack Grigg (7):
 
 Jonathan "Duke" Leto (2):
       Clarify in sendmany/z_sendmany rpc docs that amounts are not floating point
-      Fix another instance of incorrectly saying amount is double precision, and s/ZC/ZEC/
+      Fix another instance of incorrectly saying amount is double precision, and s/ZC/ARK/
 
 Larry Ruane (4):
       sapling z_sendmany default memo 0xf6 + zeros
@@ -84,11 +84,11 @@ Simon Liu (14):
       Update rpc_wallet_tests for new "sapling" default for z_getnewaddress.
       Update qa tests for new "sapling" default for z_getnewaddress.
       Add support for "notfound" message to mininode.
-      For ZEC-013. Mitigate potential tx expiry height related DoS vector.
-      For ZEC-013. Don't propagate txs which are expiring soon in p2p messages.
-      For ZEC-013. RPC createrawtransaction returns error if tx expiring soon.
-      For ZEC-013. Update qa tests broken by expiring soon threshold.
-      For ZEC-013. RPC sendrawtransaction returns error if tx expiring soon.
+      For ARK-013. Mitigate potential tx expiry height related DoS vector.
+      For ARK-013. Don't propagate txs which are expiring soon in p2p messages.
+      For ARK-013. RPC createrawtransaction returns error if tx expiring soon.
+      For ARK-013. Update qa tests broken by expiring soon threshold.
+      For ARK-013. RPC sendrawtransaction returns error if tx expiring soon.
 
 Suhas Daftuar (2):
       Do not inv old or missing blocks when pruning
