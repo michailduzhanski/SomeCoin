@@ -10,7 +10,7 @@ in [ZIP 243](https://github.com/arnak/zips/blob/master/zip-0243.rst) and the
 are finished and included in this release. Sapling support in the wallet and
 RPC is ongoing, and is expected to land in master over the next few weeks.
 
-The [Sapling MPC](https://blog.z.cash/announcing-the-sapling-mpc/) is currently
+The [Sapling MPC](https://blog.arnak.org/announcing-the-sapling-mpc/) is currently
 working on producing the final Sapling parameters. In the meantime, Sapling will
 activate on testnet with dummy Sapling parameters at height 252500. This
 activation will be temporary, and the testnet will be rolled back by version

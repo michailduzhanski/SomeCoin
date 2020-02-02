@@ -2,7 +2,7 @@ Source: arnak
 Section: utils
 Priority: optional
 Maintainer: Electric Coin Company <team@electriccoin.co>
-Homepage: https://z.cash
+Homepage: https://arnak.org
 Build-Depends: autoconf, automake, bsdmainutils, build-essential,
  git, g++-multilib, libc6-dev, libtool,
  m4, ncurses-dev, pkg-config, python,

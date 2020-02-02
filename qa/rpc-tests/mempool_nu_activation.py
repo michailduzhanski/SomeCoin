@@ -43,7 +43,7 @@ class MempoolUpgradeActivationTest(BitcoinTestFramework):
         self.nodes[0].generate(94)
         self.sync_all()
 
-        # Shield some ARK
+        # Shield some ANK
         node1_taddr = get_coinbase_address(self.nodes[1])
         node0_zaddr = self.nodes[0].z_getnewaddress('sapling')
         recipients = [{'address': node0_zaddr, 'amount': Decimal('10')}]

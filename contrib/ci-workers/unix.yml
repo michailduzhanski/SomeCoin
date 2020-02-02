@@ -11,7 +11,7 @@
   vars_prompt:
     - name: "buildbot_worker_admin"
       prompt: "Admin details"
-      default: "Arnak <sysadmin@z.cash>"
+      default: "Arnak <sysadmin@arnak.org>"
     - name: "buildbot_worker_name"
       prompt: "Buildbot worker name (provided by ZECC)"
       private: no

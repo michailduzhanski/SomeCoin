@@ -5,7 +5,7 @@ Arnak 2.1.0
 What is Arnak?
 --------------
 
-[Arnak](https://z.cash/) is an implementation of the "Zerocash" protocol.
+[Arnak](https://arnak.org/) is an implementation of the "Zerocash" protocol.
 Based on Bitcoin's code, Arnak intends to offer a far higher standard of privacy
 through a sophisticated zero-knowledge proving scheme that preserves
 confidentiality of transaction metadata. More technical details are available
@@ -23,7 +23,7 @@ blockchain has reached a significant size.
 #### :lock: Security Warnings
 
 See important security warnings on the
-[Security Information page](https://z.cash/support/security/).
+[Security Information page](https://arnak.org/support/security/).
 
 **Arnak is experimental and a work in progress.** Use it at your own risk.
 
@@ -42,7 +42,7 @@ Please see our [user guide](https://arnak.readthedocs.io/en/latest/rtd_pages/rtd
 
 * :blue_book: See the documentation at the [ReadtheDocs](https://arnak.readthedocs.io)
   for help and more information.
-* :incoming_envelope: Ask for help on the [Arnak](https://forum.z.cash/) forum.
+* :incoming_envelope: Ask for help on the [Arnak](https://forum.arnak.org/) forum.
 * :mag: Chat with our support community on [Rocket.Chat](https://chat.zcashcommunity.com/channel/user-support)
 
 Participation in the Arnak project is subject to a

@@ -39,7 +39,7 @@ Jack Grigg (11):
       Adjust blockheaderToJSON() for Arnak block header
       Adjust fundrawtransaction RPC test for Arnak
       Re-encode t-addrs in disablewallet.py with Arnak prefixes
-      BTC -> ARK in paytxfee RPC docs
+      BTC -> ANK in paytxfee RPC docs
       Update default RPC port in help strings
       Fix typo in listbanned RPC keys
 

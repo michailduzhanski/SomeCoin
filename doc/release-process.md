@@ -16,11 +16,11 @@ is a common reason.)
 
 Check that dependencies are properly hosted by looking at the `check-depends` builder:
 
-  https://ci.z.cash/#/builders/1
+  https://ci.arnak.org/#/builders/1
 
 Check that there are no surprising performance regressions:
 
-  https://speed.z.cash
+  https://speed.arnak.org
 
 Ensure that new performance metrics appear on that site.
 
@@ -114,7 +114,7 @@ Enter "Release <version>." and save when prompted for a commit message.
 - Run the [Gitian deterministic build environment](https://github.com/michailduzhanski/arnak-gitian)
 - Compare the uploaded [build manifests on gitian.sigs](https://github.com/arnak/gitian.sigs)
 - If all is well, the DevOps engineer will build the Debian packages and update the
-  [apt.z.cash package repository](https://apt.z.cash).
+  [apt.arnak.org package repository](https://apt.arnak.org).
 
 ## Add release notes to GitHub
 
@@ -139,7 +139,7 @@ the marking to see what GitHub wants to be done.
 Notify the Arnak DevOps engineer/sysadmin that the release has been tagged. They update some variables in the company's automation code and then run an Ansible playbook, which:
 
 * builds Arnak based on the specified branch
-* deploys it as a public service (e.g. betatestnet.z.cash, mainnet.z.cash)
+* deploys it as a public service (e.g. betatestnet.arnak.org, mainnet.arnak.org)
 * often the same server can be re-used, and the role idempotently handles upgrades, but if not then they also need to update DNS records
 * possible manual steps: blowing away the `testnet3` dir, deleting old parameters, restarting DNS seeder
 

@@ -5,7 +5,7 @@ This page is copyright The Electric Coin Company, 2019. It is posted in order to
 
 The Electric Coin Company is committed to working with researchers who submit security vulnerability notifications to us to resolve those issues on an appropriate timeline and perform a coordinated release, giving credit to the reporter if they would like.
 
-Please submit issues to security@z.cash, using the following PGP key:
+Please submit issues to security@arnak.org, using the following PGP key:
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----

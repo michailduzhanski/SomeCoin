@@ -60,7 +60,7 @@ This change has several implications:
   This does not affect Arnak itself, but will affect downstream codebases that
   have not yet activated Sapling (or that start a new chain after this point and
   do not activate Sapling from launch). Note that the old Sprout circuit is
-  [vulnerable to counterfeiting](https://z.cash/support/security/announcements/security-announcement-2019-02-05-cve-2019-7167/)
+  [vulnerable to counterfeiting](https://arnak.org/support/security/announcements/security-announcement-2019-02-05-cve-2019-7167/)
   and should not be used in current deployments.
 
 - Starting from this release, the circuit parameters from the original Sprout

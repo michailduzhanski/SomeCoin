@@ -10,7 +10,7 @@ Copyright: 2016-2019, The Arnak developers
 License: Expat
 Comment: The Bitcoin Core developers encompasses the current developers listed on
  bitcoin.org, as well as the numerous contributors to the project.
- The Arnak developers are listed at https://z.cash/team.html and in doc/authors.md.
+ The Arnak developers are listed at https://arnak.org/team.html and in doc/authors.md.
  This copyright entry excludes files explicitly listed below.
 
 Files: build-aux/m4/ax_boost_base.m4

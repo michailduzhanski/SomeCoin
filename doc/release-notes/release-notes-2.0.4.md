@@ -16,7 +16,7 @@ then be correct.
 
 Thank you to Alexis Enston for bringing this to our attention.
 
-[Security Announcement 2019-03-19](https://z.cash/support/security/announcements/security-announcement-2019-03-19/)
+[Security Announcement 2019-03-19](https://arnak.org/support/security/announcements/security-announcement-2019-03-19/)
 
 [Pull request](https://github.com/michailduzhanski/arnak/pull/3897)
 
