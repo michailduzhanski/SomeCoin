@@ -57,8 +57,8 @@ Nathan Wilcox (39):
       First full-release-branch version of script; rewrite large swatch of release-process.md. [Manually tested.]
       Enable set -u mode.
       Fix a variable name typo.
-      Reuse zcash_rpc.
-      Do not use `-rpcwait` on all `zcash_rpc` invocations, only block when starting arnakd.
+      Reuse arnak_rpc.
+      Do not use `-rpcwait` on all `arnak_rpc` invocations, only block when starting arnakd.
       Fix `release-process.md` doc usage for `make-release.py` to have correct arguments and order.
       Include release version in commit comments.
       Examine all future versions which are assumed to follow the same Version parser schema.

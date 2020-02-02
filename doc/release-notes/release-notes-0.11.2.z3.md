@@ -29,7 +29,7 @@ Sean Bowe (49):
       Distinguish the failure cases of wfcheck in tree.
       Change ciphertext length to match protocol spec, and refactor the use of constants.
       Initialize libsodium in the gtest suite.
-      Introduce new `libzcash` Arnak protocol API and crypto constructions surrounding the zkSNARK circuit.
+      Introduce new `libarnak` Arnak protocol API and crypto constructions surrounding the zkSNARK circuit.
       zkSNARK: Foundations of circuit design and verification logic.
       zkSNARK: Add "zero" constant variable.
       zkSNARK: Enforce spend-authority of input notes.
@@ -40,9 +40,9 @@ Sean Bowe (49):
       zkSNARK: Ensure that values balance correctly.
       zkSNARK: Witness commitments to input notes.
       zkSNARK: Enforce merkle authentication path from nonzero-valued public inputs to root.
-      libzcash: Add tests for API
+      libarnak: Add tests for API
       Remove scriptPubKey/scriptSig from CPourTx, and add randomSeed.
-      Transplant of libzcash.
+      Transplant of libarnak.
       Added public zkSNARK parameter generation utility.
       Stop testing old tree against new tree.
       Remove nearly all of libzerocash.
@@ -51,7 +51,7 @@ Sean Bowe (49):
       Remove the zerocash tests from the full test suite.
       Protect-style joinsplits should anchor to the latest root for now, until #604 is resolved.
       Use inheritance for PRF gadgets.
-      Rename ZCASH_ constants to ZC_.
+      Rename ARNAK_ constants to ZC_.
       Rename hmac -> mac in circuit.
       `Note` values should be little-endian byte order.
       Update zkSNARK proving/verifying keys.

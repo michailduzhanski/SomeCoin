@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php .
 
-#ifndef ZCASH_PAYMENTDISCLOSUREDB_H
-#define ZCASH_PAYMENTDISCLOSUREDB_H
+#ifndef ARNAK_PAYMENTDISCLOSUREDB_H
+#define ARNAK_PAYMENTDISCLOSUREDB_H
 
 #include <wallet/paymentdisclosure.h>
 
@@ -39,4 +39,4 @@ public:
 };
 
 
-#endif // ZCASH_PAYMENTDISCLOSUREDB_H
+#endif // ARNAK_PAYMENTDISCLOSUREDB_H

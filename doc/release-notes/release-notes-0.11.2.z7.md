@@ -75,7 +75,7 @@ Taylor Hornby (17):
       Rename zerocash to arnak in some places.
       Remove references to libzerocash in .gitignore
       Rename qa/zerocash to qa/arnak in Makefile.am
-      Rename zerocash_packages to zcash_packages in packages.mk
+      Rename zerocash_packages to arnak_packages in packages.mk
       Add security warnings doc with warning about side channels.
       Add another security warning
       Add the results of #784 to security warnings.

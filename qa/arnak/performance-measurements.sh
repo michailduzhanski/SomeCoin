@@ -6,26 +6,26 @@ DATADIR=./benchmark-datadir
 SHA256CMD="$(command -v sha256sum || echo shasum)"
 SHA256ARGS="$(command -v sha256sum >/dev/null || echo '-a 256')"
 
-function zcash_rpc {
+function arnak_rpc {
     ./src/arnak-cli -datadir="$DATADIR" -rpcuser=user -rpcpassword=password -rpcport=5983 "$@"
 }
 
-function zcash_rpc_slow {
+function arnak_rpc_slow {
     # Timeout of 1 hour
-    zcash_rpc -rpcclienttimeout=3600 "$@"
+    arnak_rpc -rpcclienttimeout=3600 "$@"
 }
 
-function zcash_rpc_veryslow {
+function arnak_rpc_veryslow {
     # Timeout of 2.5 hours
-    zcash_rpc -rpcclienttimeout=9000 "$@"
+    arnak_rpc -rpcclienttimeout=9000 "$@"
 }
 
-function zcash_rpc_wait_for_start {
-    zcash_rpc -rpcwait getinfo > /dev/null
+function arnak_rpc_wait_for_start {
+    arnak_rpc -rpcwait getinfo > /dev/null
 }
 
 function arnakd_generate {
-    zcash_rpc generate 101 > /dev/null
+    arnak_rpc generate 101 > /dev/null
 }
 
 function extract_benchmark_datadir {
@@ -76,11 +76,11 @@ function arnakd_start {
     esac
     ./src/arnakd -regtest -datadir="$DATADIR" -rpcuser=user -rpcpassword=password -rpcport=5983 -showmetrics=0 &
     ARNAKD_PID=$!
-    zcash_rpc_wait_for_start
+    arnak_rpc_wait_for_start
 }
 
 function arnakd_stop {
-    zcash_rpc stop > /dev/null
+    arnak_rpc stop > /dev/null
     wait $ARNAKD_PID
 }
 
@@ -107,11 +107,11 @@ function arnakd_massif_start {
     rm -f massif.out
     valgrind --tool=massif --time-unit=ms --massif-out-file=massif.out ./src/arnakd -regtest -datadir="$DATADIR" -rpcuser=user -rpcpassword=password -rpcport=5983 -showmetrics=0 &
     ARNAKD_PID=$!
-    zcash_rpc_wait_for_start
+    arnak_rpc_wait_for_start
 }
 
 function arnakd_massif_stop {
-    zcash_rpc stop > /dev/null
+    arnak_rpc stop > /dev/null
     wait $ARNAKD_PID
     ms_print massif.out
 }
@@ -123,11 +123,11 @@ function arnakd_valgrind_start {
     rm -f valgrind.out
     valgrind --leak-check=yes -v --error-limit=no --log-file="valgrind.out" ./src/arnakd -regtest -datadir="$DATADIR" -rpcuser=user -rpcpassword=password -rpcport=5983 -showmetrics=0 &
     ARNAKD_PID=$!
-    zcash_rpc_wait_for_start
+    arnak_rpc_wait_for_start
 }
 
 function arnakd_valgrind_stop {
-    zcash_rpc stop > /dev/null
+    arnak_rpc stop > /dev/null
     wait $ARNAKD_PID
     cat valgrind.out
 }
@@ -167,7 +167,7 @@ case "$1" in
         case "$2" in
             verifyjoinsplit)
                 arnakd_start "${@:2}"
-                RAWJOINSPLIT=$(zcash_rpc zcsamplejoinsplit)
+                RAWJOINSPLIT=$(arnak_rpc zcsamplejoinsplit)
                 arnakd_stop
         esac
 esac
@@ -177,56 +177,56 @@ case "$1" in
         arnakd_start "${@:2}"
         case "$2" in
             sleep)
-                zcash_rpc zcbenchmark sleep 10
+                arnak_rpc zcbenchmark sleep 10
                 ;;
             parameterloading)
-                zcash_rpc zcbenchmark parameterloading 10
+                arnak_rpc zcbenchmark parameterloading 10
                 ;;
             createsaplingspend)
-                zcash_rpc zcbenchmark createsaplingspend 10
+                arnak_rpc zcbenchmark createsaplingspend 10
                 ;;
             verifysaplingspend)
-                zcash_rpc zcbenchmark verifysaplingspend 1000
+                arnak_rpc zcbenchmark verifysaplingspend 1000
                 ;;
             createsaplingoutput)
-                zcash_rpc zcbenchmark createsaplingoutput 50
+                arnak_rpc zcbenchmark createsaplingoutput 50
                 ;;
             verifysaplingoutput)
-                zcash_rpc zcbenchmark verifysaplingoutput 1000
+                arnak_rpc zcbenchmark verifysaplingoutput 1000
                 ;;
             createjoinsplit)
-                zcash_rpc zcbenchmark createjoinsplit 10 "${@:3}"
+                arnak_rpc zcbenchmark createjoinsplit 10 "${@:3}"
                 ;;
             verifyjoinsplit)
-                zcash_rpc zcbenchmark verifyjoinsplit 1000 "\"$RAWJOINSPLIT\""
+                arnak_rpc zcbenchmark verifyjoinsplit 1000 "\"$RAWJOINSPLIT\""
                 ;;
             solveequihash)
-                zcash_rpc_slow zcbenchmark solveequihash 50 "${@:3}"
+                arnak_rpc_slow zcbenchmark solveequihash 50 "${@:3}"
                 ;;
             verifyequihash)
-                zcash_rpc zcbenchmark verifyequihash 1000
+                arnak_rpc zcbenchmark verifyequihash 1000
                 ;;
             validatelargetx)
-                zcash_rpc zcbenchmark validatelargetx 10 "${@:3}"
+                arnak_rpc zcbenchmark validatelargetx 10 "${@:3}"
                 ;;
             trydecryptnotes)
-                zcash_rpc zcbenchmark trydecryptnotes 1000 "${@:3}"
+                arnak_rpc zcbenchmark trydecryptnotes 1000 "${@:3}"
                 ;;
             incnotewitnesses)
-                zcash_rpc zcbenchmark incnotewitnesses 100 "${@:3}"
+                arnak_rpc zcbenchmark incnotewitnesses 100 "${@:3}"
                 ;;
             connectblockslow)
                 extract_benchmark_data
-                zcash_rpc zcbenchmark connectblockslow 10
+                arnak_rpc zcbenchmark connectblockslow 10
                 ;;
             sendtoaddress)
-                zcash_rpc zcbenchmark sendtoaddress 10 "${@:4}"
+                arnak_rpc zcbenchmark sendtoaddress 10 "${@:4}"
                 ;;
             loadwallet)
-                zcash_rpc zcbenchmark loadwallet 10 
+                arnak_rpc zcbenchmark loadwallet 10 
                 ;;
             listunspent)
-                zcash_rpc zcbenchmark listunspent 10
+                arnak_rpc zcbenchmark listunspent 10
                 ;;
             *)
                 arnakd_stop
@@ -239,56 +239,56 @@ case "$1" in
         arnakd_massif_start "${@:2}"
         case "$2" in
             sleep)
-                zcash_rpc zcbenchmark sleep 1
+                arnak_rpc zcbenchmark sleep 1
                 ;;
             parameterloading)
-                zcash_rpc zcbenchmark parameterloading 1
+                arnak_rpc zcbenchmark parameterloading 1
                 ;;
             createsaplingspend)
-                zcash_rpc zcbenchmark createsaplingspend 1
+                arnak_rpc zcbenchmark createsaplingspend 1
                 ;;
             verifysaplingspend)
-                zcash_rpc zcbenchmark verifysaplingspend 1
+                arnak_rpc zcbenchmark verifysaplingspend 1
                 ;;
             createsaplingoutput)
-                zcash_rpc zcbenchmark createsaplingoutput 1
+                arnak_rpc zcbenchmark createsaplingoutput 1
                 ;;
             verifysaplingoutput)
-                zcash_rpc zcbenchmark verifysaplingoutput 1
+                arnak_rpc zcbenchmark verifysaplingoutput 1
                 ;;
             createjoinsplit)
-                zcash_rpc_slow zcbenchmark createjoinsplit 1 "${@:3}"
+                arnak_rpc_slow zcbenchmark createjoinsplit 1 "${@:3}"
                 ;;
             verifyjoinsplit)
-                zcash_rpc zcbenchmark verifyjoinsplit 1 "\"$RAWJOINSPLIT\""
+                arnak_rpc zcbenchmark verifyjoinsplit 1 "\"$RAWJOINSPLIT\""
                 ;;
             solveequihash)
-                zcash_rpc_slow zcbenchmark solveequihash 1 "${@:3}"
+                arnak_rpc_slow zcbenchmark solveequihash 1 "${@:3}"
                 ;;
             verifyequihash)
-                zcash_rpc zcbenchmark verifyequihash 1
+                arnak_rpc zcbenchmark verifyequihash 1
                 ;;
             validatelargetx)
-                zcash_rpc zcbenchmark validatelargetx 1
+                arnak_rpc zcbenchmark validatelargetx 1
                 ;;
             trydecryptnotes)
-                zcash_rpc zcbenchmark trydecryptnotes 1 "${@:3}"
+                arnak_rpc zcbenchmark trydecryptnotes 1 "${@:3}"
                 ;;
             incnotewitnesses)
-                zcash_rpc zcbenchmark incnotewitnesses 1 "${@:3}"
+                arnak_rpc zcbenchmark incnotewitnesses 1 "${@:3}"
                 ;;
             connectblockslow)
                 extract_benchmark_data
-                zcash_rpc zcbenchmark connectblockslow 1
+                arnak_rpc zcbenchmark connectblockslow 1
                 ;;
             sendtoaddress)
-                zcash_rpc zcbenchmark sendtoaddress 1 "${@:4}"
+                arnak_rpc zcbenchmark sendtoaddress 1 "${@:4}"
                 ;;
             loadwallet)
                 # The initial load is sufficient for measurement
                 ;;
             listunspent)
-                zcash_rpc zcbenchmark listunspent 1
+                arnak_rpc zcbenchmark listunspent 1
                 ;;
             *)
                 arnakd_massif_stop
@@ -302,44 +302,44 @@ case "$1" in
         arnakd_valgrind_start
         case "$2" in
             sleep)
-                zcash_rpc zcbenchmark sleep 1
+                arnak_rpc zcbenchmark sleep 1
                 ;;
             parameterloading)
-                zcash_rpc zcbenchmark parameterloading 1
+                arnak_rpc zcbenchmark parameterloading 1
                 ;;
             createsaplingspend)
-                zcash_rpc zcbenchmark createsaplingspend 1
+                arnak_rpc zcbenchmark createsaplingspend 1
                 ;;
             verifysaplingspend)
-                zcash_rpc zcbenchmark verifysaplingspend 1
+                arnak_rpc zcbenchmark verifysaplingspend 1
                 ;;
             createsaplingoutput)
-                zcash_rpc zcbenchmark createsaplingoutput 1
+                arnak_rpc zcbenchmark createsaplingoutput 1
                 ;;
             verifysaplingoutput)
-                zcash_rpc zcbenchmark verifysaplingoutput 1
+                arnak_rpc zcbenchmark verifysaplingoutput 1
                 ;;
             createjoinsplit)
-                zcash_rpc_veryslow zcbenchmark createjoinsplit 1 "${@:3}"
+                arnak_rpc_veryslow zcbenchmark createjoinsplit 1 "${@:3}"
                 ;;
             verifyjoinsplit)
-                zcash_rpc zcbenchmark verifyjoinsplit 1 "\"$RAWJOINSPLIT\""
+                arnak_rpc zcbenchmark verifyjoinsplit 1 "\"$RAWJOINSPLIT\""
                 ;;
             solveequihash)
-                zcash_rpc_veryslow zcbenchmark solveequihash 1 "${@:3}"
+                arnak_rpc_veryslow zcbenchmark solveequihash 1 "${@:3}"
                 ;;
             verifyequihash)
-                zcash_rpc zcbenchmark verifyequihash 1
+                arnak_rpc zcbenchmark verifyequihash 1
                 ;;
             trydecryptnotes)
-                zcash_rpc zcbenchmark trydecryptnotes 1 "${@:3}"
+                arnak_rpc zcbenchmark trydecryptnotes 1 "${@:3}"
                 ;;
             incnotewitnesses)
-                zcash_rpc zcbenchmark incnotewitnesses 1 "${@:3}"
+                arnak_rpc zcbenchmark incnotewitnesses 1 "${@:3}"
                 ;;
             connectblockslow)
                 extract_benchmark_data
-                zcash_rpc zcbenchmark connectblockslow 1
+                arnak_rpc zcbenchmark connectblockslow 1
                 ;;
             *)
                 arnakd_valgrind_stop

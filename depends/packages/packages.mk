@@ -34,8 +34,8 @@ rust_crates := \
   crate_winapi_x86_64_pc_windows_gnu
 rust_packages := rust $(rust_crates) librustzcash
 proton_packages := proton
-zcash_packages := libsodium
-packages := boost openssl libevent zeromq $(zcash_packages) googletest
+arnak_packages := libsodium
+packages := boost openssl libevent zeromq $(arnak_packages) googletest
 native_packages := native_ccache
 
 wallet_packages=bdb

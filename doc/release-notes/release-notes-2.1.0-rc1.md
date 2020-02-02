@@ -153,7 +153,7 @@ Jack Grigg (39):
       rpc: Use Sapling transactions in zc_raw_joinsplit
       depends: Fix crate vendoring path
       depends: Helper for vendoring new crates
-      depends: Add flag for building with a local librustzcash repo
+      depends: Add flag for building with a local librustarnak repo
       tests: Clean up use of repr() in mininode
       Remove makeGrothProof argument from JoinSplit::prove
       Stop fetching old Sprout parameters

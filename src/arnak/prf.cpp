@@ -5,7 +5,7 @@
 #include <array>
 #include <librustzcash.h>
 
-const unsigned char ZCASH_EXPANDSEED_PERSONALIZATION[crypto_generichash_blake2b_PERSONALBYTES] = {'Z','c','a','s','h','_','E','x','p','a','n','d','S','e','e','d'};
+const unsigned char ARNAK_EXPANDSEED_PERSONALIZATION[crypto_generichash_blake2b_PERSONALBYTES] = {'Z','c','a','s','h','_','E','x','p','a','n','d','S','e','e','d'};
 
 // Sapling 
 std::array<unsigned char, 64> PRF_expand(const uint256& sk, unsigned char t)
@@ -17,7 +17,7 @@ std::array<unsigned char, 64> PRF_expand(const uint256& sk, unsigned char t)
     blob[32] = t;
         
     crypto_generichash_blake2b_state state;
-    crypto_generichash_blake2b_init_salt_personal(&state, nullptr, 0, 64, nullptr, ZCASH_EXPANDSEED_PERSONALIZATION);
+    crypto_generichash_blake2b_init_salt_personal(&state, nullptr, 0, 64, nullptr, ARNAK_EXPANDSEED_PERSONALIZATION);
     crypto_generichash_blake2b_update(&state, blob, 33);
     crypto_generichash_blake2b_final(&state, res.data(), 64);
     
@@ -59,7 +59,7 @@ std::array<unsigned char, 11> default_diversifier(const uint256& sk)
     blob[33] = 0;
     while (true) {
         crypto_generichash_blake2b_state state;
-        crypto_generichash_blake2b_init_salt_personal(&state, nullptr, 0, 64, nullptr, ZCASH_EXPANDSEED_PERSONALIZATION);
+        crypto_generichash_blake2b_init_salt_personal(&state, nullptr, 0, 64, nullptr, ARNAK_EXPANDSEED_PERSONALIZATION);
         crypto_generichash_blake2b_update(&state, blob, 34);
         crypto_generichash_blake2b_final(&state, res.data(), 11);
         

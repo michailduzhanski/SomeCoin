@@ -115,9 +115,9 @@ Simon (91):
       Add z_getbalance and z_gettotalbalance RPC calls to close #1201.
       Fix typo in error message
       Disable proof generation when testmode is enabled in async SendMany operation.
-      Reduce use of global pzcashParams with private member variable
-      Revert "Reduce use of global pzcashParams with private member variable"
-      Replace zcashParams_ with global.
+      Reduce use of global parnakParams with private member variable
+      Revert "Reduce use of global parnakParams with private member variable"
+      Replace arnakParams_ with global.
       Add tests to try and improve coverage of perform_joinsplit.
       Add GetUnspentNotes to wallet.
       Add test for GetUnspentNotes() in wallet.

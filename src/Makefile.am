@@ -48,7 +48,7 @@ if ENABLE_PROTON
 LIBBITCOIN_PROTON=libbitcoin_proton.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBZCASH_CONSENSUS=libzcashconsensus.la
+LIBARNAK_CONSENSUS=libzcashconsensus.la
 endif
 if ENABLE_WALLET
 LIBBITCOIN_WALLET=libbitcoin_wallet.a
@@ -73,7 +73,7 @@ EXTRA_LIBRARIES += \
   $(LIBBITCOIN_PROTON) \
   $(LIBZCASH)
 
-lib_LTLIBRARIES = $(LIBZCASH_CONSENSUS)
+lib_LTLIBRARIES = $(LIBARNAK_CONSENSUS)
 
 bin_PROGRAMS =
 noinst_PROGRAMS =
@@ -87,7 +87,7 @@ if BUILD_BITCOIN_UTILS
   bin_PROGRAMS += arnak-cli arnak-tx
 endif
 
-LIBZCASH_H = \
+LIBARNAK_H = \
   arnak/IncrementalMerkleTree.hpp \
   arnak/NoteEncryption.hpp \
   arnak/Address.hpp \
@@ -271,7 +271,7 @@ libbitcoin_server_a_SOURCES = \
   txmempool.cpp \
   validationinterface.cpp \
   $(BITCOIN_CORE_H) \
-  $(LIBZCASH_H)
+  $(LIBARNAK_H)
 
 if ENABLE_ZMQ
 libbitcoin_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
@@ -313,7 +313,7 @@ libbitcoin_wallet_a_SOURCES = \
   wallet/wallet_ismine.cpp \
   wallet/walletdb.cpp \
   $(BITCOIN_CORE_H) \
-  $(LIBZCASH_H)
+  $(LIBARNAK_H)
 
 # crypto primitives library
 crypto_libbitcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES)
@@ -381,7 +381,7 @@ libbitcoin_common_a_SOURCES = \
   transaction_builder.cpp \
   utiltest.cpp \
   $(BITCOIN_CORE_H) \
-  $(LIBZCASH_H)
+  $(LIBARNAK_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
@@ -405,7 +405,7 @@ libbitcoin_util_a_SOURCES = \
   utilstrencodings.cpp \
   utiltime.cpp \
   $(BITCOIN_CORE_H) \
-  $(LIBZCASH_H)
+  $(LIBARNAK_H)
 
 if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
@@ -417,7 +417,7 @@ libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
   rpc/client.cpp \
   $(BITCOIN_CORE_H) \
-  $(LIBZCASH_H)
+  $(LIBARNAK_H)
 
 nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
@@ -456,7 +456,7 @@ arnakd_LDADD += \
   $(ZMQ_LIBS) \
   $(PROTON_LIBS) \
   $(LIBBITCOIN_CRYPTO) \
-  $(LIBZCASH_LIBS)
+  $(LIBARNAK_LIBS)
 
 # bitcoin-cli binary #
 arnak_cli_SOURCES = bitcoin-cli.cpp
@@ -478,7 +478,7 @@ arnak_cli_LDADD = \
   $(EVENT_LIBS) \
   $(LIBZCASH) \
   $(LIBBITCOIN_CRYPTO) \
-  $(LIBZCASH_LIBS)
+  $(LIBARNAK_LIBS)
 #
 
 # arnak-tx binary #
@@ -499,7 +499,7 @@ arnak_tx_LDADD = \
   $(LIBSECP256K1) \
   $(LIBZCASH) \
   $(LIBBITCOIN_CRYPTO) \
-  $(LIBZCASH_LIBS)
+  $(LIBARNAK_LIBS)
 
 arnak_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #

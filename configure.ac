@@ -454,8 +454,8 @@ if test x$TARGET_OS != xwindows; then
 fi
 
 if test x$use_fuzz_main == xyes; then
-    CFLAGS="$CFLAGS -DZCASH_FUZZ=1"
-    CXXFLAGS="$CXXFLAGS -DZCASH_FUZZ=1"
+    CFLAGS="$CFLAGS -DARNAK_FUZZ=1"
+    CXXFLAGS="$CXXFLAGS -DARNAK_FUZZ=1"
 fi
 
 #asan and tsan cannot be used together
@@ -758,7 +758,7 @@ AX_CHECK_COMPILE_FLAG([-fwrapv],[CXXFLAGS="$CXXFLAGS -fwrapv"])
 AX_CHECK_COMPILE_FLAG([-fno-strict-aliasing],[CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"])
 AX_CHECK_COMPILE_FLAG([-Wno-builtin-declaration-mismatch],[CXXFLAGS="$CXXFLAGS -Wno-builtin-declaration-mismatch"],,[[$CXXFLAG_WERROR]])
 
-LIBZCASH_LIBS="$BOOST_SYSTEM_LIB -lcrypto -lsodium $RUST_LIBS"
+LIBARNAK_LIBS="$BOOST_SYSTEM_LIB -lcrypto -lsodium $RUST_LIBS"
 
 AC_MSG_CHECKING([whether to build bitcoind])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
@@ -888,7 +888,7 @@ AC_SUBST(SSL_LIBS)
 AC_SUBST(EVENT_LIBS)
 AC_SUBST(EVENT_PTHREADS_LIBS)
 AC_SUBST(ZMQ_LIBS)
-AC_SUBST(LIBZCASH_LIBS)
+AC_SUBST(LIBARNAK_LIBS)
 AC_SUBST(PROTON_LIBS)
 AC_CONFIG_FILES([Makefile src/Makefile doc/man/Makefile src/test/buildenv.py])
 AC_CONFIG_FILES([qa/pull-tester/run-bitcoind-for-test.sh],[chmod +x qa/pull-tester/run-bitcoind-for-test.sh])

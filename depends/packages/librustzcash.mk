@@ -6,7 +6,7 @@ $(package)_download_file=$($(package)_git_commit).tar.gz
 $(package)_sha256_hash=9909ec59fa7a411c2071d6237b3363a0bc6e5e42358505cf64b7da0f58a7ff5a
 $(package)_git_commit=06da3b9ac8f278e5d4ae13088cf0a4c03d2c13f5
 $(package)_dependencies=rust
-ifeq ($(LIBRUSTZCASH_OVERRIDE),)
+ifeq ($(LIBRUSTARNAK_OVERRIDE),)
 $(package)_dependencies+=$(rust_crates)
 $(package)_patches=cargo.config 0001-Start-using-cargo-clippy-for-CI.patch remove-dev-dependencies.diff
 endif
@@ -23,7 +23,7 @@ endif
 
 define $(package)_set_vars
 $(package)_build_opts=--release
-ifeq ($(LIBRUSTZCASH_OVERRIDE),)
+ifeq ($(LIBRUSTARNAK_OVERRIDE),)
 $(package)_build_opts+=--frozen
 endif
 ifneq ($(canonical_host),$(build))
@@ -31,7 +31,7 @@ $(package)_build_opts+=--target=$($(package)_rust_target)
 endif
 endef
 
-ifneq ($(LIBRUSTZCASH_OVERRIDE),)
+ifneq ($(LIBRUSTARNAK_OVERRIDE),)
 
 define $(package)_fetch_cmds
 endef
@@ -40,15 +40,15 @@ define $(package)_extract_cmds
 endef
 
 define $(package)_build_cmds
-  cd $(LIBRUSTZCASH_OVERRIDE) && \
+  cd $(LIBRUSTARNAK_OVERRIDE) && \
   $(host_prefix)/native/bin/cargo build --package librustzcash $($(package)_build_opts)
 endef
 
 define $(package)_stage_cmds
   mkdir $($(package)_staging_dir)$(host_prefix)/lib/ && \
   mkdir $($(package)_staging_dir)$(host_prefix)/include/ && \
-  cp $(LIBRUSTZCASH_OVERRIDE)/$($(package)_library_file) $($(package)_staging_dir)$(host_prefix)/lib/ && \
-  cp $(LIBRUSTZCASH_OVERRIDE)/librustzcash/include/librustzcash.h $($(package)_staging_dir)$(host_prefix)/include/
+  cp $(LIBRUSTARNAK_OVERRIDE)/$($(package)_library_file) $($(package)_staging_dir)$(host_prefix)/lib/ && \
+  cp $(LIBRUSTARNAK_OVERRIDE)/librustzcash/include/librustzcash.h $($(package)_staging_dir)$(host_prefix)/include/
 endef
 
 else

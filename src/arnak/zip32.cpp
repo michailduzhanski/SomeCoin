@@ -13,10 +13,10 @@
 #include <librustzcash.h>
 #include <sodium.h>
 
-const unsigned char ZCASH_HD_SEED_FP_PERSONAL[crypto_generichash_blake2b_PERSONALBYTES] =
+const unsigned char ARNAK_HD_SEED_FP_PERSONAL[crypto_generichash_blake2b_PERSONALBYTES] =
     {'Z', 'c', 'a', 's', 'h', '_', 'H', 'D', '_', 'S', 'e', 'e', 'd', '_', 'F', 'P'};
 
-const unsigned char ZCASH_TADDR_OVK_PERSONAL[crypto_generichash_blake2b_PERSONALBYTES] =
+const unsigned char ARNAK_TADDR_OVK_PERSONAL[crypto_generichash_blake2b_PERSONALBYTES] =
     {'Z', 'c', 'T', 'a', 'd', 'd', 'r', 'T', 'o', 'S', 'a', 'p', 'l', 'i', 'n', 'g'};
 
 HDSeed HDSeed::Random(size_t len)
@@ -29,7 +29,7 @@ HDSeed HDSeed::Random(size_t len)
 
 uint256 HDSeed::Fingerprint() const
 {
-    CBLAKE2bWriter h(SER_GETHASH, 0, ZCASH_HD_SEED_FP_PERSONAL);
+    CBLAKE2bWriter h(SER_GETHASH, 0, ARNAK_HD_SEED_FP_PERSONAL);
     h << seed;
     return h.GetHash();
 }
@@ -44,7 +44,7 @@ uint256 ovkForShieldingFromTaddr(HDSeed& seed) {
         NULL, 0, // No key.
         64,
         NULL,    // No salt.
-        ZCASH_TADDR_OVK_PERSONAL) == 0);
+        ARNAK_TADDR_OVK_PERSONAL) == 0);
     crypto_generichash_blake2b_update(&state, rawSeed.data(), rawSeed.size());
     auto intermediate = std::array<unsigned char, 64>();
     crypto_generichash_blake2b_final(&state, intermediate.data(), 64);

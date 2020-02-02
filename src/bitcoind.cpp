@@ -186,7 +186,7 @@ bool AppInit(int argc, char* argv[])
 
     return fRet;
 }
-#ifdef ZCASH_FUZZ
+#ifdef ARNAK_FUZZ
 #warning BUILDING A FUZZER, NOT THE REAL MAIN
 #include "fuzz.cpp"
 #else

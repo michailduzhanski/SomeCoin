@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php .
 
-#ifndef ZCASH_AMQP_AMQPABSTRACTNOTIFIER_H
-#define ZCASH_AMQP_AMQPABSTRACTNOTIFIER_H
+#ifndef ARNAK_AMQP_AMQPABSTRACTNOTIFIER_H
+#define ARNAK_AMQP_AMQPABSTRACTNOTIFIER_H
 
 #include "amqpconfig.h"
 
@@ -40,4 +40,4 @@ protected:
     std::string address;
 };
 
-#endif // ZCASH_AMQP_AMQPABSTRACTNOTIFIER_H
+#endif // ARNAK_AMQP_AMQPABSTRACTNOTIFIER_H

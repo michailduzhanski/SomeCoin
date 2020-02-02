@@ -30,7 +30,7 @@ mined block.  This was fixed in Bitcoin 0.12 and we have now merged the change.
 Miners who wish to use the same address for every mined block, should use the
 `-mineraddress` option. 
 
-[Mining Guide](https://arnak.readthedocs.io/en/latest/rtd_pages/zcash_mining_guide.html)
+[Mining Guide](https://arnak.readthedocs.io/en/latest/rtd_pages/arnak_mining_guide.html)
 
 
 New consensus rule: Reject blocks that violate turnstile (Testnet only)

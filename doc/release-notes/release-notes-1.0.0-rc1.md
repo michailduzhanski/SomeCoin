@@ -80,12 +80,12 @@ Kevin Gallagher (24):
       Include contrib/devtools/split-debug.sh from upstream
       Adds faketime to Gitian build dependencies
       Inlude crypto/equihash.tcc in list of sources for dist
-      Adds arnak/Arnak.h to LIBZCASH sources
-      Adds arnak/Proof.hpp to LIBZCASH_H
+      Adds arnak/Arnak.h to LIBARNAK sources
+      Adds arnak/Proof.hpp to LIBARNAK_H
       Add alertkeys.h to libbitcoin_server_a_SOURCES
-      Adds files in src/arnak/circuit to libzcash_a_SOURCES
+      Adds files in src/arnak/circuit to libarnak_a_SOURCES
       Adds zcbenchmarks.h to libbitcoin_wallet_a_SOURCES
-      Adds json_test_vectors.h to zcash_gtest_SOURCES
+      Adds json_test_vectors.h to arnak_gtest_SOURCES
       Adds additional licenses to Debian copyright file
       Updates Arnak Core developers -> Arnak developers
       Adds . to blank lines in Google license

@@ -37,7 +37,7 @@ Jack Grigg (31):
       Randomize JoinSplits in z_sendmany
       Refactor test code to better test JSDescription::Randomized()
       Remove stale comment
-      Rename libbitcoinconsensus to libzcashconsensus
+      Rename libbitcoinconsensus to libarnakconsensus
       Rename bitcoin-tx to arnak-tx
       Remove the RC 1 block index error message
       Disable wallet encryption

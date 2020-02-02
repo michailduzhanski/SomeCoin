@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php .
 
-#ifndef ZCASH_ZIP32_H
-#define ZCASH_ZIP32_H
+#ifndef ARNAK_ZIP32_H
+#define ARNAK_ZIP32_H
 
 #include "serialize.h"
 #include "support/allocators/secure.h"
@@ -141,4 +141,4 @@ typedef boost::variant<InvalidEncoding, SproutSpendingKey, SaplingExtendedSpendi
 /** Check whether a SpendingKey is not an InvalidEncoding. */
 bool IsValidSpendingKey(const libzcash::SpendingKey& zkey);
 
-#endif // ZCASH_ZIP32_H
+#endif // ARNAK_ZIP32_H

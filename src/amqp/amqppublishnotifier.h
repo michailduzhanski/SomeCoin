@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php .
 
-#ifndef ZCASH_AMQP_AMQPPUBLISHNOTIFIER_H
-#define ZCASH_AMQP_AMQPPUBLISHNOTIFIER_H
+#ifndef ARNAK_AMQP_AMQPPUBLISHNOTIFIER_H
+#define ARNAK_AMQP_AMQPPUBLISHNOTIFIER_H
 
 #include "amqpabstractnotifier.h"
 #include "amqpconfig.h"
@@ -53,4 +53,4 @@ public:
     bool NotifyTransaction(const CTransaction &transaction);
 };
 
-#endif // ZCASH_AMQP_AMQPPUBLISHNOTIFIER_H
+#endif // ARNAK_AMQP_AMQPPUBLISHNOTIFIER_H

@@ -43,7 +43,7 @@ Please see our [user guide](https://arnak.readthedocs.io/en/latest/rtd_pages/rtd
 * :blue_book: See the documentation at the [ReadtheDocs](https://arnak.readthedocs.io)
   for help and more information.
 * :incoming_envelope: Ask for help on the [Arnak](https://forum.arnak.org/) forum.
-* :mag: Chat with our support community on [Rocket.Chat](https://chat.zcashcommunity.com/channel/user-support)
+* :mag: Chat with our support community on [Rocket.Chat](https://chat.arnak.org/channel/user-support)
 
 Participation in the Arnak project is subject to a
 [Code of Conduct](code_of_conduct.md).

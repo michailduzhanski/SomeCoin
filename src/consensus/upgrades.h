@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php .
 
-#ifndef ZCASH_CONSENSUS_UPGRADES_H
-#define ZCASH_CONSENSUS_UPGRADES_H
+#ifndef ARNAK_CONSENSUS_UPGRADES_H
+#define ARNAK_CONSENSUS_UPGRADES_H
 
 #include "consensus/params.h"
 
@@ -89,4 +89,4 @@ boost::optional<int> NextActivationHeight(
     int nHeight,
     const Consensus::Params& params);
 
-#endif // ZCASH_CONSENSUS_UPGRADES_H
+#endif // ARNAK_CONSENSUS_UPGRADES_H

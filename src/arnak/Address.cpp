@@ -6,7 +6,7 @@
 
 #include <librustzcash.h>
 
-const unsigned char ZCASH_SAPLING_FVFP_PERSONALIZATION[crypto_generichash_blake2b_PERSONALBYTES] =
+const unsigned char ARNAK_SAPLING_FVFP_PERSONALIZATION[crypto_generichash_blake2b_PERSONALBYTES] =
     {'Z', 'c', 'a', 's', 'h', 'S', 'a', 'p', 'l', 'i', 'n', 'g', 'F', 'V', 'F', 'P'};
 
 namespace libzcash {
@@ -77,7 +77,7 @@ bool SaplingFullViewingKey::is_valid() const {
 }
 
 uint256 SaplingFullViewingKey::GetFingerprint() const {
-    CBLAKE2bWriter ss(SER_GETHASH, 0, ZCASH_SAPLING_FVFP_PERSONALIZATION);
+    CBLAKE2bWriter ss(SER_GETHASH, 0, ARNAK_SAPLING_FVFP_PERSONALIZATION);
     ss << *this;
     return ss.GetHash();
 }
