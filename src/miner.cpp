@@ -572,7 +572,6 @@ if(false){
                 } while (true);
                 miningTimer.start();
             }
-LogPrintf("BitcoinMiner: test 0\n");
             //
             // Create new block
             //
@@ -580,7 +579,6 @@ LogPrintf("BitcoinMiner: test 0\n");
             CBlockIndex* pindexPrev = chainActive.Tip();
 
             unique_ptr<CBlockTemplate> pblocktemplate(CreateNewBlock(chainparams, coinbaseScript->reserveScript));
-LogPrintf("BitcoinMiner: test 1\n");
             if (!pblocktemplate.get())
             {
                 if (GetArg("-mineraddress", "").empty()) {
@@ -667,7 +665,6 @@ LogPrintf("BitcoinMiner: test 1\n");
 
                 // TODO: factor this out into a function with the same API for each solver.
                 if (solver == "tromp") {
-LogPrintf("BitcoinMiner: tromp test 1\n");
                     // Create solver and initialize it.
                     equi eq(1);
                     eq.setstate(&curr_state);
