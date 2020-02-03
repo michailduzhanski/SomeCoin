@@ -161,7 +161,7 @@ public:
         base58Prefixes[ZCSPENDING_KEY]     = {0xAB,0x36};
 		
 		
-		bech32HRPs[SAPLING_PAYMENT_ADDRESS]      = "hx";
+		bech32HRPs[SAPLING_PAYMENT_ADDRESS]      = "zs";
         bech32HRPs[SAPLING_FULL_VIEWING_KEY]     = "zviews";
         bech32HRPs[SAPLING_INCOMING_VIEWING_KEY] = "zivks";
         bech32HRPs[SAPLING_EXTENDED_SPEND_KEY]   = "secret-extended-key-main";
