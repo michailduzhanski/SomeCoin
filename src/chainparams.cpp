@@ -154,14 +154,14 @@ public:
         // do not rely on these BIP32 prefixes; they are not specified and may change
         base58Prefixes[EXT_PUBLIC_KEY]     = {0x04,0x88,0xB2,0x1E};
         base58Prefixes[EXT_SECRET_KEY]     = {0x04,0x88,0xAD,0xE4};
-        // guarantees the first 2 characters, when base58 encoded, are "hd"
+        // guarantees the first 2 characters, when base58 encoded, are "hx"
         base58Prefixes[ZCPAYMENT_ADDRRESS] = {0x10,0x11};
         base58Prefixes[ZCVIEWING_KEY]      = {0xA8,0xAB,0xD3};
         // guarantees the first 2 characters, when base58 encoded, are "SK"
         base58Prefixes[ZCSPENDING_KEY]     = {0xAB,0x36};
 		
 		
-		bech32HRPs[SAPLING_PAYMENT_ADDRESS]      = "zs";
+		bech32HRPs[SAPLING_PAYMENT_ADDRESS]      = "hx";
         bech32HRPs[SAPLING_FULL_VIEWING_KEY]     = "zviews";
         bech32HRPs[SAPLING_INCOMING_VIEWING_KEY] = "zivks";
         bech32HRPs[SAPLING_EXTENDED_SPEND_KEY]   = "secret-extended-key-main";
