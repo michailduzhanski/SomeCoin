@@ -146,9 +146,9 @@ public:
 		vSeeds.push_back(CDNSSeedData("dns.arnak.org", "dnsseed.arnak.org")); // Arnak
 		
         // guarantees the first 2 characters, when base58 encoded, are "v1"
-        base58Prefixes[PUBKEY_ADDRESS]     = {0x1D,0xD7};
+        base58Prefixes[PUBKEY_ADDRESS]     = {0x1D,0xD8};
         // guarantees the first 2 characters, when base58 encoded, are "v3"
-        base58Prefixes[SCRIPT_ADDRESS]     = {0x1D,0xDC};
+        base58Prefixes[SCRIPT_ADDRESS]     = {0x1D,0xDE};
         // the first character, when base58 encoded, is "5" or "K" or "L" (as in Bitcoin)
         base58Prefixes[SECRET_KEY]         = {0x80};
         // do not rely on these BIP32 prefixes; they are not specified and may change
