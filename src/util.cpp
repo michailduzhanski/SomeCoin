@@ -495,13 +495,13 @@ static boost::filesystem::path ZC_GetBaseParamsDir()
     // Copied from GetDefaultDataDir and adapter for arnak params.
 
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\ZcashParams
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\ZcashParams
-    // Mac: ~/Library/Application Support/ZcashParams
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\ArnakParams
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\ArnakParams
+    // Mac: ~/Library/Application Support/ArnakParams
     // Unix: ~/.arnak-params
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "ZcashParams";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "ArnakParams";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -513,7 +513,7 @@ static boost::filesystem::path ZC_GetBaseParamsDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "ZcashParams";
+    return pathRet / "ArnakParams";
 #else
     // Unix
     return pathRet / ".arnak-params";

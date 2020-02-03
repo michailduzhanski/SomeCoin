@@ -3,7 +3,7 @@
 set -eu
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    PARAMS_DIR="$HOME/Library/Application Support/ZcashParams"
+    PARAMS_DIR="$HOME/Library/Application Support/ArnakParams"
 else
     PARAMS_DIR="$HOME/.arnak-params"
 fi
