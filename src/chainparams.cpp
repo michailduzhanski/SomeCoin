@@ -190,7 +190,7 @@ public:
         nSproutValuePoolCheckpointHeight = 0;
         nSproutValuePoolCheckpointBalance = 0;
         fZIP209Enabled = true;
-        hashSproutValuePoolCheckpointBlock = uint256S("0x00036cbcbde45e45939af8dd8749ccd9c61c751bc898dcada157495d847e13c5");
+        hashSproutValuePoolCheckpointBlock = uint256S("0x0002f07bb5c8747a3d6c593eebd243046f92d65312efd1a4c6afc753028fb195");
 
         // Founders reward script expects a vector of 2-of-3 multisig addresses
         vFoundersRewardAddress = {};
