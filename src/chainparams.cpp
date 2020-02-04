@@ -109,11 +109,11 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_TESTDUMMY].nActivationHeight =
             Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_OVERWINTER].nProtocolVersion = 170005;
-        consensus.vUpgrades[Consensus::UPGRADE_OVERWINTER].nActivationHeight = 7;
+        consensus.vUpgrades[Consensus::UPGRADE_OVERWINTER].nActivationHeight = 0;
         consensus.vUpgrades[Consensus::UPGRADE_OVERWINTER].hashActivationBlock =
             uint256S("0000000003761c0d0c3974b54bdb425613bbb1eaadd6e70b764de82f195ea243");
         consensus.vUpgrades[Consensus::UPGRADE_SAPLING].nProtocolVersion = 170007;
-        consensus.vUpgrades[Consensus::UPGRADE_SAPLING].nActivationHeight = 7;
+        consensus.vUpgrades[Consensus::UPGRADE_SAPLING].nActivationHeight = 0;
         consensus.vUpgrades[Consensus::UPGRADE_SAPLING].hashActivationBlock =
             uint256S("00000000025a57200d898ac7f21e26bf29028bbe96ec46e05b2c17cc9db9e4f3");
         consensus.vUpgrades[Consensus::UPGRADE_BLOSSOM].nProtocolVersion = 170009;
