@@ -109,7 +109,7 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_TESTDUMMY].nActivationHeight =
             Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_OVERWINTER].nProtocolVersion = 170005;
-        consensus.vUpgrades[Consensus::UPGRADE_OVERWINTER].nActivationHeight = 347500;
+        consensus.vUpgrades[Consensus::UPGRADE_OVERWINTER].nActivationHeight = 5;
         consensus.vUpgrades[Consensus::UPGRADE_OVERWINTER].hashActivationBlock =
             uint256S("0000000003761c0d0c3974b54bdb425613bbb1eaadd6e70b764de82f195ea243");
         consensus.vUpgrades[Consensus::UPGRADE_SAPLING].nProtocolVersion = 170007;
@@ -312,10 +312,10 @@ public:
         // Hardcoded fallback value for the Sprout shielded value pool balance
         // for nodes that have not reindexed since the introduction of monitoring
         // in #2795.
-        nSproutValuePoolCheckpointHeight = 440329;
-        nSproutValuePoolCheckpointBalance = 40000029096803;
+        nSproutValuePoolCheckpointHeight = 6;
+        nSproutValuePoolCheckpointBalance = 100000000;
         fZIP209Enabled = true;
-        hashSproutValuePoolCheckpointBlock = uint256S("000a95d08ba5dcbabe881fc6471d11807bcca7df5f1795c99f3ec4580db4279b");
+        hashSproutValuePoolCheckpointBlock = uint256S("00032a18716390283ee358d9ee2d95d88948706d0ad7656171392eb265889527");
 
         // Founders reward script expects a vector of 2-of-3 multisig addresses
         vFoundersRewardAddress = {
